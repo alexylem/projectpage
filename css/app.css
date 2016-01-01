@@ -1,0 +1,23 @@
+body {
+  position: relative;
+  padding-top: 70px;
+}
+
+.navbar-header .dropdown-menu {
+	margin-left: -15px;
+}
+
+span.img-circle {
+	color: white;
+	font-size: 2em;
+    padding: 0.5em;
+}
+div.row.middle {
+	margin-bottom: 40px;
+	display: flex;
+    align-items: center;
+}
+
+.emoji {
+  height: 1.2em;
+}
