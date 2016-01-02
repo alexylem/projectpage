@@ -5,7 +5,7 @@ Ractive.DEBUG = (my.log_level >= 4);
 // loading Config
 var Config = {};
 $.ajax ({
-	url: 'config.defaults.hjson',
+	url: 'http://alexylem.github.io/projectpage/config.defaults.hjson',
 	success: function (sconfig) {
 		Config = Hjson.parse (sconfig);
 
