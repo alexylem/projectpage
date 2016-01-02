@@ -1,5 +1,5 @@
 // Log levels
-my.loglevel = 4; // recommended for production is 2
+my.loglevel = 2; // recommended for production is 2
 Ractive.DEBUG = (my.loglevel >= 4);
 console.log ('loglevel is', my.loglevel);
 
