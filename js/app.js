@@ -4,27 +4,47 @@ Ractive.DEBUG = (my.loglevel >= 4);
 console.log ('loglevel is', my.loglevel);
 
 // loading Config
-var hjson = 'config.defaults.hjson';
-my.debug ('retrieving config file at', hjson);
+var default_hjson = 'config.defaults.hjson',
+	user_hjson = (window.location.host == 'alexylem.github.io')?default_hjson:'config.hjson'; // hack for Projectpage website
+
+my.debug ('retrieving config file at', user_hjson);
 $.ajax ({
-	url: hjson,
+	url: user_hjson,
 	dataType: 'text',
 	success: function (sconfig) {
-		my.debug ('ok');
+		my.debug ('user has created config.hjson, using it');
 		buildpage (Hjson.parse (sconfig));
 	},
 	error: function(XMLHttpRequest, textStatus, errorThrown) {
-		var error = textStatus+';'+XMLHttpRequest.responseText+';'+errorThrown,
-		 	config = {
-			title: 'Error',
-			sections: [{
-				title: 'Error',
-				text: error,
-				image: '',
-			}]
-		};
-		console.error ('Error '+XMLHttpRequest.status+' from '+hjson+': ', error);
-		buildpage (config);
+		console.warn ('user has not yet created config.hjson, using default');
+		$.ajax ({
+			url: default_hjson,
+			dataType: 'text',
+			success: function (sconfig) {
+				// default json found, appending Warning
+				var config = Hjson.parse (sconfig);
+				config.sections.unshift ({
+					text: '> :warning: `config.hjson` not found, using `config.defaults.hjson`.  \n'+
+						  'Please create `config.hjson` from a copy of `config.defaults.hjson`.  \n'+
+						  'More information available in the [documentation](http://alexylem.github.io/projectpage/).'
+				});
+				buildpage (config);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				// default hjson not found, showing error
+				var error = textStatus+';'+XMLHttpRequest.responseText+';'+errorThrown,
+				 	config = {
+					title: 'Error',
+					sections: [{
+						title: 'Error',
+						text: error,
+						image: '',
+					}]
+				};
+				console.error ('Error '+XMLHttpRequest.status+' from '+hjson+': ', error);
+				buildpage (config);
+			}
+		});
 	}
 });
 
