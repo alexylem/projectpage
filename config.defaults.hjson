@@ -4,13 +4,6 @@
 
 	// Display your navbar title as a dropdown for discovering your other projects
 	projectpages: [ // false to disable
-		/*
-		{
-			icon: 'asterisk' // for "glyphicon glyphicon-asterisk" (see http://getbootstrap.com/components)
-			title: ''
-			url: ''
-		}, {...}
-		*/
 		{icon: "home", title: "iHome", url: "http://domotiquefacile.fr" }
 		{icon: "play-circle", title: "Launcher", url: "http://domotiquefacile.fr/launcher/" }
 		{icon: "picture", title: "MyPhotos", url: "https://github.com/alexylem/myphotos#myphotos"}
@@ -27,30 +20,22 @@
 	theme: false // false to keep vanilla Bootstrap theme
 
 	// These are the main sections of your ProjectPage
-	sections: [
-		/* Section Cheat-Sheet, do not uncomment
+	sections: [ /* FULL DOCUMENTATION available here: http://alexylem.github.io/projectpage/#sections
+		
+		Cheat-Sheet, do not uncomment
 		{
-			type: 'text|jumbotron|carousel'
-			link: 'Navbar link label'
-			id: 'navbar-link-id' (used for linking & scrollspy)
-			title: 'Big title'
-			text: 'This text supports **Github flavored Markdown**' // https://help.github.com/articles/markdown-basics
+			type: 'jumbotron|text|grid' // more to come in the future
+			link: 'Link Label' // Set a label if you need a link for this section on the top navigation bar
+			id: 'section-id' // used for navbar linking & scrollspy
+			title: 'Big title' // title of the section
+			text: 'This text supports **Github flavored Markdown**' // (https://markdown-it.github.io/)
 			icon: 'asterisk' // for "glyphicon glyphicon-asterisk" (see http://getbootstrap.com/components)
 			image: 'img/image.png'
-			icons: [{
+			items: [{ // used for grid section type
 				icon: 'asterisk',
 				title: 'Short title'
 				text: 'Short text for this icon'
 			}, {...}]
-
-
-Type           | Title           | Icon        | Text             | Image      | Grid
----------------|-----------------|-------------|------------------|------------|-------
-(none) OR text | Full width <H2> | Button icon | (N/A) Side text  | Side image | (N/A)
-jumbotron      | Jumbotron <H1>  | (N/A)       | Slogan           | Background | (N/A)
-grid           | Icon title      | (N/A)       | Icon description | (N/A)      | Cells
-carousel       |                 |             |                  | Background | (N/A)
-
 		}
 		*/
 		{
@@ -68,7 +53,7 @@ carousel       |                 |             |                  | Background |
 			items: [{
 				icon: gift
 				title: Free
-				text: *ProjectPage* is free to download and to use! Why not giving it a try?
+				text: *ProjectPage* is free to download and to use! Why not [give it a try](#install)?
 			},{
 				icon: phone
 				title: Responsive
@@ -142,6 +127,7 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 
 '''
 		}{
+			id: jumbotron
 			title: Jumbotron
 			text:
 '''
@@ -159,7 +145,6 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 > Go to [bootstrap components](http://getbootstrap.com/components) to see all supported icons.
 '''
 		}{
-			id: jumbotron
 			type: jumbotron
 			title: I'm a Jumbotron
 			text: This is the Slogan
@@ -167,6 +152,7 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			button: Click me
 			icon: play
 		}{
+			id: text
 			title: Text & Image
 			text:
 '''
@@ -186,13 +172,13 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 > Go to [bootstrap components](http://getbootstrap.com/components) to see all supported icons.
 '''
 		}{
-			id: text
 			title: I'm a title
 			text: And this is the text
 			image: https://placeimg.com/300/300/nature
 			button: Click me
 			icon: play
 		}{
+			id: grid
 			title: Grid
 			text:
 '''
@@ -217,7 +203,6 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 > Icons will render by rows of 3. They will stack on narrow mobile displays.
 '''
 		}{
-			id: grid
 			type: grid
 			items: [{
 				icon: send
@@ -238,11 +223,13 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			title: Installation
 			image: "https://placeimg.com/300/300/tech"
 			text: '''
-1) [Download]() *ProjectPage* and dump it on a static webserver
+1) [Download ProjectPage](https://github.com/alexylem/projectpage/archive/master.zip) and dump it on a static webserver
+> Or better [clone it from Github](https://github.com/alexylem/projectpage)
 2) Copy `config.defaults.js` into `config.js`
 > :warning: If you directly modify `config.defaults.js` you will loose your changes on the next *ProjectPage* update.
 3) Modify `config.js` to set-up your *ProjectPage*
 > The default config file is well commented to guide you
+
 :bulb: GitHub can [host your ProjectPage](https://pages.github.com). If you do so, you can set-up a secured online edition link for your site:
 ```
 [edit](https://github.com/USERNAME/REPONAME/edit/gh-pages/js/config.js)
@@ -265,5 +252,5 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 '''
 		}
 	]
-	footer: "Alexandre Mély - [:pencil2:](https://github.com/alexylem/coinche/edit/gh-pages/js/config.js)"
+	footer: "Alexandre Mély - [:pencil2:](https://github.com/alexylem/projectpage/edit/gh-pages/config.defaults.hjson)"
 }
