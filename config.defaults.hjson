@@ -168,9 +168,10 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 		icon: play                 /* Optional, for button icon, 'play' => "glyphicon glyphicon-play" */
 	}, {...}]
 ```
-> The image on text sections will be 1 time left, 1 time right sided  
-> Go to [Markdow-it](https://markdown-it.github.io/) to practice *Markdown* markup language  
-> Go to [bootstrap components](http://getbootstrap.com/components) to see all supported icons.
+> The image on text sections will be 1 time left, 1 time right sided.  
+> Go to [Markdow-it](https://markdown-it.github.io/) to practice *Markdown* markup language.  
+> Here is the :+1: [Emoli Cheat-Sheet](http://www.emoji-cheat-sheet.com/) for *Markdown* emoji you can use.  
+> Go to [bootstrap components](http://getbootstrap.com/components) to see all supported section icons.
 '''
 		}{
 			title: I'm a title
@@ -226,9 +227,9 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			text: '''
 1) [Download ProjectPage](https://github.com/alexylem/projectpage/archive/master.zip) and dump it on a static webserver
 > Or better [clone it from Github](https://github.com/alexylem/projectpage)
-2) Copy `config.defaults.js` into `config.js`
-> :warning: If you directly modify `config.defaults.js` you will loose your changes on the next *ProjectPage* update.
-3) Modify `config.js` to set-up your *ProjectPage*
+2) Copy `config.defaults.hjson` into `config.hjson`
+> :warning: If you directly modify `config.defaults.hjson` you will loose your changes on the next *ProjectPage* update.
+3) Modify `config.hjson` to set-up your *ProjectPage*
 > The default config file is well commented to guide you
 
 :bulb: GitHub can [host your ProjectPage](https://pages.github.com). If you do so, you can set-up a secured online edition link for your site:
