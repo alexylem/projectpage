@@ -5,4 +5,4 @@ Demo & full documentation available on http://alexylem.github.io/projectpage
 
 ## License
 
-[MIT](https://github.com/alexylem/projectpage/blob/master/LICENSE)
+[MIT](https://github.com/alexylem/projectpage/blob/master/LICENSE.md)
