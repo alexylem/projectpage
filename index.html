@@ -20,6 +20,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 
+	  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+
      <link href="css/app.css" rel="stylesheet">
   </head>
 
@@ -35,23 +37,21 @@
   						<span class="icon-bar"></span>
   						<span class="icon-bar"></span>
   					</button>
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<a class="navbar-brand dropdown-toggle" href="#"  data-toggle="dropdown">{{title}} <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-header">Mes projets</li>
-								<li><a href="#"><span class="glyphicon glyphicon-home"></span> iHome</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-play-circle"></span> Launcher</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-picture"></span> MyPhotos</a></li>
-								<li><a href="#"><span class="glyphicon">&spades;</span> Coinche</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Builder</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span> ProjectPage</a></li>
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">Sites web</li>
-								<li><a href="http://moeatacreations.fr/" target="_blank"><span class="glyphicon glyphicon-globe"></span> Moeata Creations</a></li>
-							</ul>
-						</li>
-					</ul>
+					{{#if projectpages}}
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a class="navbar-brand dropdown-toggle" href="#"  data-toggle="dropdown">{{title}} <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									{{#each projectpages}}
+										<li><a href="{{url}}">{{#icon}}<span class="glyphicon glyphicon-{{icon}}"></span> {{/}}{{title}}</a></li>
+									{{/each}}
+								</ul>
+							</li>
+						</ul>
+					{{else}}
+						<a class="navbar-brand" href="#">{{title}}</a>
+					{{/if}}
+
   				</div>
   				<div class="navbar-collapse collapse">
   					<ul class="nav navbar-nav">
@@ -61,9 +61,11 @@
   								<li><a href="#{{id}}">{{link}}</a></li>
   							{{/if}}
   						{{/each}}
-						<li><a href="#disqus_thread">
-							<span class="glyphicon glyphicon-comment"></span>
-						</a></li>
+						{{#if comments}}
+							<li><a href="#disqus_thread">
+								<span class="glyphicon glyphicon-comment"></span>
+							</a></li>
+						{{/if}}
   					</ul>
   				</div>
   			</div>
@@ -73,7 +75,7 @@
 
   			{{#sections:i}}
 	  			{{#if type == 'jumbotron'}}
-		  			<div id="{{id}}" class="jumbotron text-center">
+		  			<div id="{{id}}" class="jumbotron text-center" {{#if image}}style="background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) ), url('{{image}}')"{{/if}}>
 		  				<h1>{{title}}</h1>
 		  				<p class="markdown">{{text}}</p>
 						{{#button}}
@@ -83,19 +85,19 @@
 						{{/}}
 		  			</div>
 
-		  		{{elseif grid}}
+		  		{{elseif type == 'grid'}}
 				  	<div id="{{id}}" class="row text-center">
-					  	{{#grid:i}}
+					  	{{#items:i}}
 				  			<div class="col-sm-4">
 					  			<span class="glyphicon glyphicon-{{icon}} bg-primary img-circle"></span>
 			  					<h3>{{title}}</h3>
-			  					<p class="markdown">{{text}}</p>
+			  					<p class="markdown text-muted">{{text}}</p>
 			  				</div>
-			  			{{/icons}}
+			  			{{/items}}
 		  			</div>
 				{{elseif image}}
 					<div id="{{id}}" class="row middle">
-						<div class="col-sm-7 {{#if i%2}}col-sm-push-5{{/if}}">
+						<div class="col-sm-7 {{^i%2}}col-sm-push-5{{/}}">
 							<h2>{{title}}</h2>
 							<p class="lead markdown">{{text}}</p>
 							{{#button}}
@@ -104,7 +106,7 @@
 								</a>
 							{{/}}
 						</div>
-						<div class="col-sm-5 {{#if i%2}}col-sm-pull-7{{/if}} text-center">
+						<div class="col-sm-5 {{^i%2}}col-sm-pull-7{{/}} text-center">
 							<img class="img-rounded" src="{{image}}">
 						</div>
 					</div>
@@ -126,7 +128,8 @@
 
 			<footer>
 				<p class="text-muted pull-left markdown">{{footer}}</p>
-				<p class="text-muted pull-right"><a href="#"><span class="glyphicon glyphicon-chevron-up"></span></a> Powered with &hearts; by <a href="#" target="_blank">ProjectPage</a></p>
+				{{! Thanks for not removing the below line and for your support to ProjectPage /}}
+				<p class="text-muted pull-right"><a href="#"><span class="glyphicon glyphicon-chevron-up"></span></a> Powered by <a href="#" target="_blank">ProjectPage</a></p>
 			</footer>
   		</div>
 
@@ -141,14 +144,21 @@
   	<!-- Bootstrap -->
   	<script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
+	<!-- HJson parser -->
+	<script src='lib/hjson/hjson.min.js'></script>
+
 	<!-- Markdown convertor -->
 	<script src="lib/markdown-it/markdown-it.min.js"></script>
 	<script src="lib/markdown-it/markdown-it-emoji.min.js"></script> <!-- emoji support via ascii chars -->
 	<script src="//twemoji.maxcdn.com/twemoji.min.js"></script> <!-- full emoji support via images -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script> <!-- syntax highlighting -->
 
   	<!-- App -->
   	<script src="js/my.js"></script>
-  	<script src="js/config.js"></script>
+	<!--
+	<script src="config.RENAME-ME.js"></script>
+	<script src="config.js"></script>
+	-->
   	<script src="js/app.js"></script>
   </body>
   </html>
