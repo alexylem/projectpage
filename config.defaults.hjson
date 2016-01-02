@@ -15,7 +15,8 @@
 
 	// Enable Disqus comments (https://publishers.disqus.com/engage)
 	comments: true
-
+	disqus_shortname: coinche
+	
 	// Choose a Bootwatch theme (https://bootswatch.com/) ex: 'united'
 	theme: false // false to keep vanilla Bootstrap theme
 
@@ -80,7 +81,7 @@
 			text:
 '''
 This is an insight of this page's config file. It is written in hjson ([Human JSON](http://hjson.org/)) for easier writing of multi-line paragraphs.
-```
+``` cson
 {
 	title: ProjectPage
 	comments: true
@@ -114,7 +115,7 @@ Each available section types are rendered below, with their corresponding config
 * (more will be added in the future)
 
 Each section can be published on the top Navigation bar as a link. For this, simply set `link` and `id` properies:  
-```
+``` cson
 	sections: [{
 		link: Section Types
 		id: sections
@@ -131,15 +132,15 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			title: Jumbotron
 			text:
 '''
-```
+``` cson
 	sections: [{
 		type: jumbotron
-		title: I'm a Jumbotron    /* Optional */
-		text: This is the Slogan  /* Optional */
-		image: https://...        /* Optional */
-		button: Click me          /* Optional */
-		url: http://...           /* Optional, for button click */
-		icon: play                /* Optional, for button icon, 'play' => "glyphicon glyphicon-play" */
+		title: Im a Jumbotron    // Optional
+		text: This is the Slogan // Optional
+		image: "https://..."     // Optional
+		button: Click me         // Optional
+		url: "http://..."        // Optional, for button click
+		icon: play               // Optional, for button icon, 'play' => "glyphicon glyphicon-play"
 	}, {...}]
 ```
 > Go to [bootstrap components](http://getbootstrap.com/components) to see all supported icons.
@@ -156,7 +157,7 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			title: Text & Image
 			text:
 '''
-```
+``` cson
 	sections: [{
 		type: text                 /* Optional as it's the default type */
 		title: I'm a title         /* Optional */
@@ -182,7 +183,7 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 			title: Grid
 			text:
 '''
-```
+``` cson
 	sections: [{
 		type: grid
 		items: [{
@@ -231,11 +232,29 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 > The default config file is well commented to guide you
 
 :bulb: GitHub can [host your ProjectPage](https://pages.github.com). If you do so, you can set-up a secured online edition link for your site:
-```
+``` cson
 [edit](https://github.com/USERNAME/REPONAME/edit/gh-pages/js/config.js)
 ```
 '''
-		},{
+		}{
+				title: Comment Module
+				image: https://media.disquscdn.com/docs/embed.png
+				text:
+'''
+> *Disqus* is a networked community platform used by hundreds of thousands of sites all over the web.
+
+In order to enable the *Disqus* comment module in your *Projectpage*, just:
+1) [Create an account](https://disqus.com/admin/signup/) at Disqus
+2) Enable the comments module on your `config.js`:
+``` cson
+{
+	comments: true
+	disqus_shortname: YOUR_DISQUS_SHORTNAME
+}
+```
+3) Configure your comment module in [Disqus admin page](https://disqus.com/admin/settings/general/)
+'''
+		}{
 			link: Support
 			id: support
 			title: Get support

@@ -24,6 +24,10 @@ div.row.middle {
     align-items: center;
 }
 
+div.section img {
+	max-width: 300px;
+}
+
 .emoji {
   height: 1.2em;
 }

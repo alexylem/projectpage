@@ -20,7 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 
-	  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.5.0/styles/solarized_light.min.css">
 
      <link href="css/app.css" rel="stylesheet">
   </head>
@@ -75,7 +75,7 @@
 
   			{{#sections:i}}
 	  			{{#if type == 'jumbotron'}}
-		  			<div id="{{id}}" class="jumbotron text-center" {{#if image}}style="background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) ), url('{{image}}')"{{/if}}>
+		  			<div id="{{id}}" class="section jumbotron text-center" {{#if image}}style="background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) ), url('{{image}}')"{{/if}}>
 		  				<h1>{{title}}</h1>
 		  				<p class="markdown">{{text}}</p>
 						{{#button}}
@@ -86,7 +86,7 @@
 		  			</div>
 
 		  		{{elseif type == 'grid'}}
-				  	<div id="{{id}}" class="row text-center">
+				  	<div id="{{id}}" class="section row text-center">
 					  	{{#items:i}}
 				  			<div class="col-sm-4">
 					  			<span class="glyphicon glyphicon-{{icon}} bg-primary img-circle"></span>
@@ -96,7 +96,7 @@
 			  			{{/items}}
 		  			</div>
 				{{elseif image}}
-					<div id="{{id}}" class="row middle">
+					<div id="{{id}}" class="section row middle">
 						<div class="col-sm-7 {{^i%2}}col-sm-push-5{{/}}">
 							<h2>{{title}}</h2>
 							<p class="lead markdown">{{text}}</p>
@@ -111,7 +111,7 @@
 						</div>
 					</div>
 				{{else}}
-					<div id="{{id}}">
+					<div id="{{id}}" class="section">
 						{{#./title}}
 							<div class="page-header">
 								<h2>{{title}}</h2>
@@ -148,10 +148,10 @@
 	<script src='lib/hjson/hjson.min.js'></script>
 
 	<!-- Markdown convertor -->
+	<script src="https://cdn.jsdelivr.net/highlight.js/8.5.0/highlight.min.js"></script> <!-- syntax highlighting -->
 	<script src="lib/markdown-it/markdown-it.min.js"></script>
 	<script src="lib/markdown-it/markdown-it-emoji.min.js"></script> <!-- emoji support via ascii chars -->
 	<script src="//twemoji.maxcdn.com/twemoji.min.js"></script> <!-- full emoji support via images -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script> <!-- syntax highlighting -->
 
   	<!-- App -->
   	<script src="js/my.js"></script>
