@@ -87,7 +87,7 @@ function buildpage (config) {
 				};
 				*/
 				var d = document, s = d.createElement('script');
-				s.src = '//coinche.disqus.com/embed.js';
+				s.src = '//'+this.get('disqus_shortname')+'.disqus.com/embed.js';
 				s.setAttribute('data-timestamp', +new Date());
 				(d.head || d.body).appendChild(s);
 			}
