@@ -53,7 +53,7 @@
 			items: [{
 				icon: gift
 				title: Free
-				text: *ProjectPage* is free to download and to use! Why not [give it a try](#install)? License is [MIT](https://github.com/markdown-it/markdown-it/blob/master/LICENSE.md).
+				text: *ProjectPage* is free to download and to use! Why not [give it a try](#install)? License is [MIT](https://github.com/alexylem/projectpage/blob/master/LICENSE.md).
 			},{
 				icon: phone
 				title: Responsive
