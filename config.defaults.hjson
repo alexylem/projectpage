@@ -93,7 +93,7 @@ This is an insight of this page's config file. It is written in hjson ([Human JS
 	},{
 		text: '' '
 **ProjectPage** is a *simple* modern-looking single project page template you can fill via configuration file.
-This page is built upon *ProjectPage*.
+> :white_check_mark: This page is built upon *ProjectPage*.
 '' '
   }]
 }
@@ -122,7 +122,7 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 		text: A ProjectPage site is a vertical stack of Sections...
 	}, {...}]
 ```
-> Note that **Section Types** is available on the top nav-bar. *Srollspy* automatically highlights the current section as you sroll down.
+> Note that **Section Types** is available on the top nav-bar. *Scrollspy* automatically highlights the current section as you scroll down.
 
 
 '''
