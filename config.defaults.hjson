@@ -159,13 +159,13 @@ Each section can be published on the top Navigation bar as a link. For this, sim
 '''
 ``` cson
 	sections: [{
-		type: text                 /* Optional as it's the default type */
-		title: I'm a title         /* Optional */
-		text: And this is the text /* Optional */
-		image: https://...         /* Optional */
-		button: Click me           /* Optional */
-		url: http://...            /* Optional, for button click */
-		icon: play                 /* Optional, for button icon, 'play' => "glyphicon glyphicon-play" */
+		type: text                 // Optional as its the default type
+		title: Im a title          // Optional
+		text: And this is the text // Optional
+		image: https://...         // Optional
+		button: Click me           // Optional
+		url: http://...            // Optional, for button click
+		icon: play                 // Optional, for button icon, 'play' => "glyphicon glyphicon-play"
 	}, {...}]
 ```
 > The image on text sections will be 1 time left, 1 time right sided.  
@@ -261,13 +261,13 @@ In order to enable the *Disqus* comment module in your *Projectpage*, just:
 			title: Get support
 			image: "https://placeimg.com/300/300/tech/grayscale"
 			text: '''
-* Check out the [Documentation]()
+* Check out the [Documentation](#sections)
 * A question? Please [post a comment](#disqus_thread) below
-* [Report an issue]()
-* [Submit a feature request]()
+* [Report an issue](https://github.com/alexylem/projectpage/issues/new)
+* [Submit a feature request](https://github.com/alexylem/projectpage/issues/new)
 > *ProjectPage* is built with :heart: on my own time, any kind of support is more than welcome:
+* [Start the Repo](https://github.com/alexylem/projectpage) on GitHub
 * [Contribute to ProjectPage]() and join the team
-* Spread the word!
 * <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="KUY4CUFXEYDR2"><input type="image" src="http://megaicons.net/static/img/icons_sizes/40/110/32/paypal-icon.png" border="0" name="submit"> Pay me a beer</form>
 '''
 		}

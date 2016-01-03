@@ -5,7 +5,7 @@ console.log ('loglevel is', my.loglevel);
 
 // loading Config
 var default_hjson = 'config.defaults.hjson',
-	user_hjson = (window.location.host == 'alexylem.github.io')?default_hjson:'config.hjson'; // hack for Projectpage website
+	user_hjson = (window.location.host+window.location.pathname == 'alexylem.github.io/projectpage/')?default_hjson:'config.hjson'; // hack for Projectpage website
 
 my.debug ('retrieving config file at', user_hjson);
 $.ajax ({
